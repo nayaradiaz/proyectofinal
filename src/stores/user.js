@@ -2,11 +2,23 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const useUserStore = defineStore('user', () => {
-  const username = ref('');
+  const isLoggedIn = ref(false);
+  const userEmail = ref('');
 
-  function setUsername(name) {
-    username.value = name;
-  }
+  const login = (email) => {
+    isLoggedIn.value = true;
+    userEmail.value = email;
+  };
 
-  return { username, setUsername };
+  const logout = () => {
+    isLoggedIn.value = false;
+    userEmail.value = '';
+  };
+
+  return {
+    isLoggedIn,
+    userEmail,
+    login,
+    logout
+  };
 });
