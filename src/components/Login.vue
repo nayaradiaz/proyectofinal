@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <div class="form-container">
-            <p class="title">Welcome back</p>
+            <p class="title">Iniciar Sesión</p>
             <form class="form">
-                <input v-model="email" type="email" class="input" placeholder="Email">
+                <input v-model="username" type="text" class="input" placeholder="Username">
                 <input v-model="password" type="password" class="input" placeholder="Password">
                 <button @click="handleLogin" class="form-btn">Iniciar Sesión</button>
             </form>
@@ -14,18 +14,18 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useUserStore } from '../stores/user';
+import { useUserStore } from '../store/user';
 import { useRouter } from 'vue-router';
 
-const email = ref('');
+const username = ref('');
 
 const userStore = useUserStore();
 
 const router = useRouter();
 
 const handleLogin = () => {
-    if (email.value) {
-        userStore.login(email.value);
+    if (username.value) {
+        userStore.login(username.value);
         router.push('/home');
     } else {
         alert('Por favor ingresa tu nombre');

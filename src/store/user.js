@@ -3,21 +3,21 @@ import { ref } from 'vue';
 
 export const useUserStore = defineStore('user', () => {
   const isLoggedIn = ref(false);
-  const userEmail = ref('');
+  const userName = ref('');
 
-  const login = (email) => {
+  const login = (username) => {
     isLoggedIn.value = true;
-    userEmail.value = email;
+    userName.value = username;
   };
 
   const logout = () => {
     isLoggedIn.value = false;
-    userEmail.value = '';
+    userName.value = '';
   };
 
   return {
     isLoggedIn,
-    userEmail,
+    userName,
     login,
     logout
   };
