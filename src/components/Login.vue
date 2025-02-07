@@ -20,12 +20,24 @@ import { useRouter } from 'vue-router';
 const username = ref('');
 
 const userStore = useUserStore();
-
+const url = "https://rickandmortyapi.com/api/character";
+let array = ref(null);
 const router = useRouter();
 
 const handleLogin = () => {
     if (username.value) {
         userStore.login(username.value);
+
+        const api = async () => {
+            await fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    array.value = data.results;
+                    console.log(data.results)
+                })
+
+        }
+        api();
         router.push('/home');
     } else {
         alert('Por favor ingresa tu nombre');

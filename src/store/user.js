@@ -5,9 +5,11 @@ export const useUserStore = defineStore('user', () => {
   const isLoggedIn = ref(false);
   const userName = ref('');
 
+
   const login = (username) => {
     isLoggedIn.value = true;
     userName.value = username;
+
   };
 
   const logout = () => {

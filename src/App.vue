@@ -5,4 +5,10 @@
   <router-view />
 </template>
 
-<style scoped></style>
+<style>
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+
+}
+</style>
