@@ -1,5 +1,6 @@
 <template>
   <div class="home-container">
+    <!-- Se muestra una cuadrícula de personajes utilizando el componente 'Character' para cada uno -->
     <div class="characters-grid">
       <Character v-for="char in characters" :key="char" :character="char" />
     </div>
@@ -7,26 +8,35 @@
 </template>
 
 <script setup>
+/**
+ * Componente que muestra una lista de personajes de la API de Rick and Morty en una cuadrícula.
+ * Cada personaje se pasa al componente 'Character'
+ */
+
+// Importación de funcionalidades de Vue
 import { ref, onMounted } from 'vue';
-import { useUserStore } from '../store/user';
-import Character from '../components/Card.vue';  // Importamos el componente Character
+import Character from '../components/Card.vue';
 
-const userStore = useUserStore();
-const characters = ref([]);  // Para almacenar los personajes
+// Definir una variable reactiva para almacenar los personajes
+const characters = ref([]);
 
-// URL de la API
+// URL de la API que proporciona los datos de los personajes
 const url = "https://rickandmortyapi.com/api/character";
 
-// Hacer fetch a la API
+/**
+ * Fetch a la API de Rick and Morty para obtener la lista de personajes
+ * Este código se ejecuta cuando el componente se monta
+ */
 onMounted(async () => {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Error al obtener los datos');
-    const data = await response.json();
-    characters.value = data.results;  // Almacenamos los resultados en el array de personajes
-  } catch (error) {
-    console.error('Error en la API:', error);
-  }
+
+  // Realiza una solicitud a la API
+  const response = await fetch(url);
+  // Convierte la respuesta a formato JSON
+  const data = await response.json();
+
+  // Asigna los resultados de la API a la variable reactiva 'characters'
+  characters.value = data.results;
+
 });
 </script>
 
@@ -36,9 +46,10 @@ onMounted(async () => {
   text-align: center;
 }
 
+
 .characters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px,250px));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
   gap: 20px;
   margin-top: 20px;
   justify-content: center;
