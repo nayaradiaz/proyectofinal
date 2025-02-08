@@ -2,7 +2,9 @@
   <header>
     <!-- Contenedor del logo -->
     <div class="logo">
-      <h1>The Rick and Morty</h1>
+      <router-link to="/home">
+        <h1>The Rick and Morty</h1>
+      </router-link>
     </div>
 
     <!-- Barra de navegación con enlaces a otras páginas -->
@@ -14,7 +16,8 @@
     <!-- Sección de perfil del usuario -->
     <div class="perfil">
       <!-- Imagen del perfil -->
-      <img class="perfil-img" src="https://img.icons8.com/?size=100&id=hAPVXSp7TpSM&format=png&color=000000" alt="foto-perfil">
+      <img class="perfil-img" src="https://img.icons8.com/?size=100&id=hAPVXSp7TpSM&format=png&color=000000"
+        alt="foto-perfil">
       <!-- Nombre del usuario -->
       <p>{{ userName }}</p>
       <!-- Botón para cerrar sesión -->
@@ -65,16 +68,15 @@ watch(isLoggedIn, (newVal) => {
 </script>
 
 <style scoped>
-
 header {
   display: flex;
-  justify-content: space-around; 
-  align-items: center; 
+  justify-content: space-around;
+  align-items: center;
   padding: 15px 20px;
-  background: #303032; 
+  background: #303032;
   color: #d5c8b8;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-  transition: background 0.3s ease-in-out; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease-in-out;
 }
 
 
@@ -82,12 +84,17 @@ header:hover {
   background: #3a3a3c;
 }
 
+.logo a {
+  text-decoration: none; 
+  color: inherit; 
+}
 
-.logo h1 {
+.logo h1{
   font-size: 24px;
   margin: 0;
-  color: #b2daed; 
-  transition: color 0.3s ease-in-out; 
+  color: #b2daed;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
 }
 
 
@@ -98,36 +105,36 @@ header:hover {
 
 nav {
   display: flex;
-  gap: 20px; 
+  gap: 20px;
 }
 
 
 nav a {
   color: #ffffff;
-  text-decoration: none; 
+  text-decoration: none;
   font-size: 18px;
-  transition: color 0.3s ease-in-out, transform 0.2s; 
+  transition: color 0.3s ease-in-out, transform 0.2s;
 }
 
 
 nav a:hover {
-  color: #9fded5; 
-  transform: scale(1.1); 
+  color: #9fded5;
+  transform: scale(1.1);
 }
 
 
 .perfil {
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .perfil-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #9fded5; 
-  transition: transform 0.3s ease-in-out; 
+  border: 2px solid #9fded5;
+  transition: transform 0.3s ease-in-out;
 }
 
 
@@ -140,7 +147,7 @@ nav a:hover {
   margin: 0;
   font-weight: bold;
   color: #b2daed;
-  transition: color 0.3s ease-in-out; 
+  transition: color 0.3s ease-in-out;
 }
 
 
