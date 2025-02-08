@@ -26,7 +26,7 @@
     <button @click="closeModal">
       <span class="transition"></span>
       <span class="gradient"></span>
-      <span class="label">Cerrar</span>
+      <span class="label">Cerrr</span>
     </button>
     </div>
   </div>
