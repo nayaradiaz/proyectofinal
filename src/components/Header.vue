@@ -1,36 +1,27 @@
 <template>
   <header>
-    <h1>The Rick and Morty</h1>
+    <div class="logo">
+      <h1>The Rick and Morty</h1>
+    </div>
     <nav>
       <router-link to="/home">Home</router-link>
-      <router-link to="/about">About</router-link>
+      <router-link to="/character">Character</router-link>
     </nav>
     <div class="perfil">
-      <div> <img src="https://img.icons8.com/?size=100&id=hAPVXSp7TpSM&format=png&color=000000" alt="foto-perfil">
-      </div>
-      <div>
-        <p>{{ userName }}</p>
-      </div>
+      <img class="perfil-img" src="https://img.icons8.com/?size=100&id=hAPVXSp7TpSM&format=png&color=000000"
+        alt="foto-perfil">
+      <p>{{ userName }}</p>
+      <button @click="logout" class="logout-btn">
+        <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/exit.png" alt="Salir">
+      </button>
     </div>
   </header>
-  <router-view></router-view>
-
-
-  <div v-if="isLoggedIn">
-    <h1>Bienvenido, {{ userName }}!</h1>
-    <button @click="logout">Cerrar sesión</button>
-  </div>
-
-  <div v-else>
-    <h1>No estás logueado. Redirigiendo...</h1>
-  </div>
 </template>
 
 <script setup>
 import { useUserStore } from '../store/user';
 import { useRouter } from 'vue-router';
-import { watch, ref } from 'vue';
-
+import { ref, watch } from 'vue';
 
 const userStore = useUserStore();
 const router = useRouter();
@@ -50,62 +41,78 @@ watch(isLoggedIn, (newVal) => {
 });
 </script>
 <style scoped>
-body {
-  margin: 0;
-  padding: 0;
-}
+/* Reset y estilos generales */
 
-/* Estilo general para la barra de navegación */
+
+/* Header */
 header {
   display: flex;
   justify-content: space-around;
-  background-color: #343a40;
-  padding: 10px;
-  margin-bottom: 20px;
-  color: white;
   align-items: center;
-  width: auto;
-  height: 13vh;
+  padding: 15px 20px;
+  background: #303032;
+  /* Marrón oscuro */
+  color: #d5c8b8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+.logo h1 {
+  font-size: 24px;
+  margin: 0;
+  color: #b2daed;
+  /* Azul claro */
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #ffffff;
+  /* Verde menta */
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #9fded5;
+  /* Azul claro */
+}
+
+/* Perfil */
 .perfil {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-transform: capitalize;
+  gap: 10px;
 }
 
-a {
-  margin: 15px;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-size: larger;
+.perfil-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #9fded5;
+  /* Verde menta */
 }
 
-p {
+.perfil p {
   margin: 0;
-  padding: 0;
+  font-weight: bold;
+  color: #b2daed;
+  /* Azul claro */
 }
 
-
-/* Estilo para los mensajes */
-h1 {
-  color: white;
-}
-
-/* Botón de logout */
-button {
-  padding: 10px 15px;
-  background-color: #007BFF;
-  color: white;
+/* Botón de logout con icono */
+.logout-btn {
+  background: transparent;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  transition: transform 0.2s;
 }
 
-button:hover {
-  background-color: #0056b3;
+.logout-btn:hover {
+  transform: scale(1.1);
 }
 </style>

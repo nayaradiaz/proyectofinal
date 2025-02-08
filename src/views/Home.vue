@@ -1,8 +1,9 @@
 <template>
-  <Header />
+ 
 </template>
-<script setup>
-import Header from '../components/Header.vue';
 
+<script setup>
 </script>
-<style scoped></style>
+
+<style scoped>
+</style>
