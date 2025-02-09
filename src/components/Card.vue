@@ -25,11 +25,7 @@
       <p><strong>Género:</strong> {{ character.gender }}</p>
 
       <!-- Botón para cerrar el modal -->
-      <button @click="closeModal">
-        <span class="transition"></span>
-        <span class="gradient"></span>
-        <span class="label">Cerrar</span>
-      </button>
+      <button @click="closeModal" class="close"> Cerrar </button>
     </div>
   </div>
 </template>
@@ -105,52 +101,38 @@ onUnmounted(() => {
 }
 
 button {
-  font-size: 17px;
-  padding: 1em 2.7em;
-  font-weight: 500;
-  background: #1f2937;
+  padding: 0.75rem 1.5rem;
+  background-color: #303032;
   color: white;
+  font-size: 1rem;
+  font-weight: bold;
   border: none;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.6em;
+  border-radius: 5px;
   cursor: pointer;
-  height: 50px;
+  transition: background 0.3s;
 }
 
-.gradient {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  border-radius: 0.6em;
-  margin-top: -0.25em;
-  background-image: linear-gradient(rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.3));
+
+button:hover {
+  background-color: #303032da;
 }
 
-.transition {
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  transition-duration: 500ms;
-  background-color: rgba(19, 226, 226, 0.6);
-  border-radius: 9999px;
-  width: 0;
-  height: 0;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.close {
+  padding: 0.75rem 1.5rem;
+  background-color: #d62c2c;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-button:hover .transition {
-  width: 14em;
-  height: 14em;
-}
+.close:hover {
+  background-color: #d62c2cce;
 
-button:active {
-  transform: scale(0.97);
+
 }
 
 .modal-overlay {

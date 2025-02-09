@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'; // Importa las func
 import LoginPage from '../views/LoginPage.vue'; // Componente de la página de inicio de sesión
 import Home from '../views/Home.vue'; // Componente de la página principal
 import Character from '../views/Character.vue'; // Componente de la página de personajes
+import Planets from '../views/Planets.vue'; // Componente de la página de personajes
 
 /**
  * Definición de las rutas de la aplicación.
@@ -10,12 +11,14 @@ import Character from '../views/Character.vue'; // Componente de la página de p
 const routes = [
   // Ruta para la página de inicio de sesión
   { path: '/', component: LoginPage },
-  
+
   // Ruta para la página principal (Home)
   { path: '/home', component: Home },
-  
+
   // Ruta para la página de personajes
   { path: '/character', component: Character },
+  // Ruta para la página de mundos
+  { path: '/planets', component: Planets },
 ];
 
 /**

@@ -9,8 +9,10 @@
 
     <!-- Barra de navegación con enlaces a otras páginas -->
     <nav>
-      <router-link to="/home">Home</router-link>
-      <router-link to="/character">Character</router-link>
+      <router-link to="/home">Inicio</router-link>
+      <router-link to="/character">Personajes</router-link>
+      <router-link to="/planets">Planetas</router-link>
+
     </nav>
 
     <!-- Sección de perfil del usuario -->
@@ -85,11 +87,11 @@ header:hover {
 }
 
 .logo a {
-  text-decoration: none; 
-  color: inherit; 
+  text-decoration: none;
+  color: inherit;
 }
 
-.logo h1{
+.logo h1 {
   font-size: 24px;
   margin: 0;
   color: #b2daed;
