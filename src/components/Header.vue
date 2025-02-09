@@ -11,7 +11,6 @@
     <nav>
       <router-link to="/home">Inicio</router-link>
       <router-link to="/character">Personajes</router-link>
-      <router-link to="/planets">Planetas</router-link>
 
     </nav>
 
