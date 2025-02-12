@@ -17,12 +17,13 @@
     <!-- Sección de perfil del usuario -->
     <div class="perfil">
       <!-- Imagen del perfil -->
-      <img class="perfil-img" src="https://img.icons8.com/?size=100&id=hAPVXSp7TpSM&format=png&color=000000"
-        alt="foto-perfil">
+      <img :src="userStore.imagenPerfil"  />
+
       <!-- Nombre del usuario -->
       <p>{{ userName }}</p>
       <!-- Botón para cerrar sesión -->
       <button @click="logout" class="logout-btn">
+        <span>Cerrar Sesión</span>
         <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/exit.png" alt="Salir">
       </button>
     </div>
@@ -45,8 +46,8 @@ const userStore = useUserStore();
 const router = useRouter();
 
 // Variables reactivas para manejar el estado de sesión y el nombre de usuario
-const isLoggedIn = ref(userStore.isLoggedIn);
-const userName = ref(userStore.userName);
+const isLoggedIn = (userStore.isLoggedIn);
+const userName = (userStore.userName);
 
 /**
  * Función para cerrar sesión.
@@ -100,7 +101,7 @@ header:hover {
 
 
 .logo h1:hover {
-  color: #9fded5;
+  transform: scale(1.1);
 }
 
 
@@ -119,7 +120,7 @@ nav a {
 
 
 nav a:hover {
-  color: #9fded5;
+  color: #b2daedb2;
   transform: scale(1.1);
 }
 
@@ -127,14 +128,14 @@ nav a:hover {
 .perfil {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .perfil-img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #9fded5;
+  border: 2px solid #b2daed;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -147,25 +148,28 @@ nav a:hover {
 .perfil p {
   margin: 0;
   font-weight: bold;
-  color: #b2daed;
+  color: #ffffff;
   transition: color 0.3s ease-in-out;
 }
 
 
-.perfil p:hover {
-  color: #9fded5;
-}
 
 
 .logout-btn {
-  background: transparent;
+  background: #9022f7;
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  gap: 5px;
+  color: white;
 }
 
 
 .logout-btn:hover {
-  transform: scale(1.2) rotate(5deg);
+  transform: scale(1.1) rotate(5deg);
 }
 </style>

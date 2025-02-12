@@ -29,7 +29,7 @@
         </div>
         <p v-if="filteredCharacters.length === 0">No se encontraron personajes.</p>
 
-        <div class="characters-grid">
+        <div class="characters-grid ">
             <Character v-for="char in filteredCharacters" :key="char.id" :character="char" />
         </div>
     </div>
@@ -46,6 +46,7 @@ const page = ref(1);
 const fetchCharacters = async () => {
 
     const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page.value}`);
+    console.log(response)
     const data = await response.json();
     characters.value = data.results;
 

@@ -2,7 +2,7 @@
 
 
     <footer>
-        <p>&copy; 2024 Nayara Diaz Leon</p>
+        <p>&copy; 2025 Nayara Diaz Leon</p>
     </footer>
 
 </template>
@@ -16,6 +16,6 @@ footer {
     text-align: center;
     padding: 15px;
     background: #303032;
-    color: #d5c8b8;
+    color: #ffffff;
 }
 </style>

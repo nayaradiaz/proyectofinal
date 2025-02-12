@@ -7,11 +7,18 @@
     <h3 class="character-name">{{ character.name }}</h3>
 
     <!-- Botón para abrir el modal -->
-    <button @click="openModal">
-      <span class="transition"></span>
-      <span class="gradient"></span>
-      <span class="label">Ver Detalles</span>
-    </button>
+    <div class="ordenarBotones">
+      <div>
+        <button @click="openModal">
+          <span class="label">Ver Detalles</span>
+        </button>
+      </div>
+      <div>
+        <button @click="addImage">
+          <span class="label">Añadir Foto Perfil</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Modal para mostrar más detalles -->
@@ -23,16 +30,19 @@
       <p><strong>Estado:</strong> {{ character.status }}</p>
       <p><strong>Especie:</strong> {{ character.species }}</p>
       <p><strong>Género:</strong> {{ character.gender }}</p>
+      <p><strong>Residente en:</strong> {{ character.location.name }}</p>
 
       <!-- Botón para cerrar el modal -->
       <button @click="closeModal" class="close"> Cerrar </button>
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useUserStore } from '../store/user'; // Acceso al store de usuario para manejar la sesión
 
+const userStore = useUserStore();
+const imagen = ref('');
 /**
  * Definición de las propiedades que el componente recibe.
  * @property {Object} character - Información sobre el personaje.
@@ -42,6 +52,13 @@ defineProps({
     type: Object,
   }
 });
+
+
+const addImage = () => {
+  userStore.changeImagen(imagen.value);
+}
+
+
 
 // Estado del modal, por defecto es false
 const showModal = ref(false);
@@ -162,5 +179,10 @@ button:hover {
 .modal-content img {
   width: 80%;
   border-radius: 50%;
+}
+
+.ordenarBotones {
+  display: flex;
+  gap: 5px;
 }
 </style>

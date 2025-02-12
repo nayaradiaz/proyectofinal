@@ -6,12 +6,21 @@ import { ref } from 'vue'; // Importa 'ref' de Vue para crear variables reactiva
  * Pinia como sistema de estado.
  */
 export const useUserStore = defineStore('user', () => {
-  
+
   // Estado reactivo que indica si el usuario está logueado
   const isLoggedIn = ref(false);
 
   // Estado reactivo que almacena el nombre de usuario
   const userName = ref('');
+
+  const imagenPerfil = ref("https://img.icons8.com/?size=100&id=hAPVXSp7TpSM&format=png&color=000000");
+
+
+
+  const changeImagen = (imagen) => {
+    imagenPerfil.value=imagen;
+    console.log(imagenPerfil);
+  }
 
   /**
    * Función para loguear al usuario.
@@ -33,11 +42,16 @@ export const useUserStore = defineStore('user', () => {
     userName.value = ''; // Borra el nombre de usuario
   };
 
+
+
+
   // Retorna los estados y las funciones para que puedan ser utilizados en otros componentes
   return {
     isLoggedIn,
     userName,
     login,
-    logout
+    logout,
+    imagenPerfil,
+    changeImagen
   };
 });
